@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = "Parsing"
+  s.name = "URLRouting"
   s.version = "0.4.1"
   s.summary = "A library for turning nebulous data into well-structured data, with a focus on composition, performance, and generality."
 
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.swift_versions = "5.5"
 
-  s.source_files = "Sources/Parsing/**/*.swift"
+  s.source_files = "Sources/URLRouting/**/*.swift"
 
-  s.dependency "CasePaths"
+  s.dependency "Parsing"
 end
