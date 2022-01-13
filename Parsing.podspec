@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "Sources/Parsing/**/*.swift"
 
-  s.dependency = "CasePaths"
+  s.dependency "CasePaths"
 end

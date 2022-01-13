@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "Sources/URLRouting/**/*.swift"
 
-  s.dependency = "Parsing"
+  s.dependency "Parsing"
 end
