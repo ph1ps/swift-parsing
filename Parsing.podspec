@@ -21,7 +21,8 @@ Pod::Spec.new do |s|
     :git => "https://github.com/ph1ps/swift-parsing.git",
     :tag => s.version
   }
-
+  
+  s.platform = :ios, "13.0"
   s.swift_versions = "5.5"
 
   s.source_files = "Sources/Parsing/**/*.swift", "Sources/URLRouting/**/*.swift"
