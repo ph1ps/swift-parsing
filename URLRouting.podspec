@@ -25,4 +25,6 @@ Pod::Spec.new do |s|
   s.swift_versions = "5.5"
 
   s.source_files = "Sources/URLRouting/**/*.swift"
+
+  s.dependency = "Parsing"
 end
