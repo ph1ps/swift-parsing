@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.swift_versions = "5.5"
 
-  s.source_files = "Sources/Parsing/**/*.swift"
+  s.source_files = "Sources/Parsing/**/*.swift", "Sources/URLRouting/**/*.swift"
 
   s.dependency "CasePaths"
 end
