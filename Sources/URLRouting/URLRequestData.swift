@@ -44,6 +44,7 @@ public struct URLRequestData: Equatable {
         
         public init(_ fields: [String: ArraySlice<Substring?>], mergeStrategy: MergeStrategy = .append) {
             self.fields = fields
+            self.mergeStrategy = mergeStrategy
         }
     }
 }
