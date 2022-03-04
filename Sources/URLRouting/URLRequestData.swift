@@ -33,13 +33,19 @@ public struct URLRequestData: Equatable {
     self.user = user
   }
 
-  public struct Fields: Equatable {
-    public var fields: [String: ArraySlice<Substring?>]
-
-    public init(_ fields: [String: ArraySlice<Substring?>]) {
-      self.fields = fields
+    public struct Fields: Equatable {
+        enum MergeStrategy {
+            case append
+            case replace
+        }
+        
+        public var fields: [String: ArraySlice<Substring?>]
+        var mergeStrategy: MergeStrategy
+        
+        public init(_ fields: [String: ArraySlice<Substring?>], mergeStrategy: MergeStrategy = .append) {
+            self.fields = fields
+        }
     }
-  }
 }
 
 extension URLRequestData: Appendable {
@@ -136,13 +142,18 @@ extension URLRequestData.Fields {
 }
 
 extension URLRequestData.Fields: Appendable {
-  public init() {
-    self.init([:])
-  }
-
-  public mutating func append(contentsOf other: URLRequestData.Fields) {
-    self.fields.merge(other.fields, uniquingKeysWith: +)
-  }
+    public init() {
+        self.init([:])
+    }
+    
+    public mutating func append(contentsOf other: URLRequestData.Fields) {
+        switch mergeStrategy {
+        case .append:
+            self.fields.merge(other.fields, uniquingKeysWith: +)
+        case .replace:
+            self.fields.merge(other.fields, uniquingKeysWith: { $1 })
+        }
+    }
 }
 
 extension URLRequestData.Fields: Codable {
