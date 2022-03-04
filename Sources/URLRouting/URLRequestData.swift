@@ -34,13 +34,13 @@ public struct URLRequestData: Equatable {
   }
 
     public struct Fields: Equatable {
-        enum MergeStrategy {
+        public enum MergeStrategy {
             case append
             case replace
         }
         
         public var fields: [String: ArraySlice<Substring?>]
-        var mergeStrategy: MergeStrategy
+        public var mergeStrategy: MergeStrategy
         
         public init(_ fields: [String: ArraySlice<Substring?>], mergeStrategy: MergeStrategy = .append) {
             self.fields = fields
